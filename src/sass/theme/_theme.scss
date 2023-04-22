@@ -2,6 +2,7 @@
 $primary:#EBAD00;
 $primary-500:#DFA503;
 $secondary:BLACK;
+$secondary-500: #161616;
 $secondary-300:#3f3f3f;
 $secondary-200:#67686a;
 $black: black;
@@ -16,12 +17,14 @@ $sm:576px;
 $md:768px;
 $lg:992px;
 $xl:1200px;
+$xxl:1400px;
 
 body{
     font-size: $text-base;
     font-family: 'Roboto', sans-serif;
     background-color: $black;
     color: $white;
+    height: 8000px;
 
 }
 
@@ -29,6 +32,37 @@ button{
     outline: 0px;
     box-shadow: 0px;
 }
+
+.button{
+    
+        color: $white;
+        border: 1px solid $primary;
+        padding: 0.5rem 1em;
+        background-color: $black;
+        border-radius: 1.5em;
+        text-decoration: none;
+        &.top-header-contact-email{
+            @media (max-width:$lg) {
+                display: none;
+            }
+        }
+         .fa {
+            color: $primary;
+            margin-right: 0.5rem;
+         }
+
+         transition: ease 0.25s all;
+
+         &:hover {
+            background-color: $primary;
+            color: $white;
+         }
+    
+}
+
+/**
+HEADER STYLES
+*/
 
 .top-header {
     background: $black;
@@ -163,7 +197,7 @@ button{
 
         @media (max-width:$md) {
             width: 100%;
-            margin-top: -30px;
+            margin-top: -20px;
         }
 
         border-radius: 15px;
@@ -232,3 +266,263 @@ button{
     }
 }
 
+/**
+HOME HERO BANNER STYLES
+*/
+
+.home-hero-banner-top{
+    margin-top: 100px;
+    @media (max-width:$md )  {
+        margin-top: 50px;
+    }
+
+    .skip-bin-info-holder{
+        border: 4px dashed $primary;
+        background-color: $secondary-500;
+        padding: 30px;
+        border-radius: 30px;
+        position: relative;
+
+        @media (max-width:$md) {
+            padding: 20px;
+        }
+
+        .overlay-image-arrow{
+            position: absolute;
+            right: 35%;
+            bottom: 100%;
+
+            @media (max-width:$md) {
+                display: none;
+            }
+
+            
+        }
+
+        @media (max-width:$xxl) {
+            .overlay-image-arrow{
+                right: 27%;
+            }
+        }
+        @media (min-width:$xl )  {
+            .overlay-image-arrow{
+                right: 22%;
+            }
+        }
+
+
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+
+            @media (max-width:$md )  {
+                font-size: 24px;
+            }
+
+            .fa{
+                color: $primary;
+                margin-right: 10px;
+            }
+        }
+        .desc {
+            font-size: 24px;
+            @media (max-width:$md)  {
+                font-size: $text-18;
+            }
+            font-weight: 300;
+            color: $primary;
+        }
+    }
+
+    .seven-day-skip-info {
+        margin-top: 15px;
+        img{
+            @media (max-width:$md) {
+                display: none;
+            }
+        }
+
+        .title {
+            display: none;
+            color: $primary;
+            font-size: 26px;
+            font-family: 'Just Another Hand', cursive;
+
+
+            @media (max-width:$md) {
+                display: block;
+            }
+        }
+    }
+
+    .home-hero-slider {
+        margin-top: 50px;
+        border-radius: 30px;
+        overflow: hidden;
+        margin-bottom: -110px;
+        position: relative;
+        z-index: 500;
+        
+        @media (max-width:$md){
+            margin-top: 20px;
+        }
+
+        .slide {
+            .image {
+                height: 420px;
+                background-color: red;
+                background-image: url('../img/slider-1.png');
+                background-size: cover;
+                background-position: center;
+
+                @media (max-width:$lg){
+                    height: 320px;
+                }
+
+                @media (max-width:$lg){
+                    height: 220px;
+                }
+            }
+
+            .entry-content {
+                background-color: white;
+                min-height: 110px;
+                color: $black;
+                font-weight: bold;
+                display: flex;
+                line-height: 1.15;
+                align-items: center;
+                padding-inline: 30px;
+                padding-block: 10px;
+                column-gap: 30px;
+
+                @media(max-width:$md) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                }
+
+                .icon {
+
+                    @media(max-width:$lg) {
+                        display: none;
+                    }
+                }
+
+                .info {
+                    max-width: 600px;
+                    font-size: 26px;
+                    @media(max-width:$lg) {
+                        font-size: 18px;
+                    }
+                }
+
+                .slider-nav {
+                    display: flex;
+                    width: 130px;
+                    gap: 25px;
+                    justify-content: space-between;
+                    flex: 1;
+                    justify-content: end;
+
+                    @media(max-width:$md) {
+                        justify-content: start;
+                        flex: none;
+                    }
+
+                    a{
+                        
+                        color: $primary;
+                        font-size: 36px;
+                        display: inline-block;
+
+                        @media(max-width:$md) {
+                            a:first-child{
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+  
+}
+
+.home-special-offer-background-overlay{
+    position: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50px;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        background-color: rgba($color: #000000, $alpha: 0.1);
+    }
+}
+
+.home-product-info{
+    background-color: $primary;
+    padding-top: 200px;
+    height: 1000px;
+    margin-top: -50px;
+    margin-bottom: -50px;
+
+    .home-special-offer {
+        background-color: $black;
+        border-radius: 15px;
+        display: flex;
+        padding: 50px;
+        gap: 50px;
+        position: relative;
+        z-index: 500;
+
+        .discount-circle {
+            height: 268px;
+            min-width: 268px;
+            border-radius: 50%;
+            background-color: $white;
+            color: $black;
+            line-height: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .save {
+                font-size: 36px;
+                font-weight: 900;
+                text-transform: uppercase;
+            }
+
+            .percent {
+                font-size: 75px;
+                font-weight: 900;
+            }
+        }
+
+        .entry-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            align-items: start;
+            
+            .title{
+                color: $primary;
+                margin: 0;
+
+            }
+
+            p{
+                margin: 0;
+            } 
+        }
+    }
+}
