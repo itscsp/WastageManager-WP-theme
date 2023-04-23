@@ -15415,12 +15415,15 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: black;
   color: white;
-  height: 8000px;
 }
 
 button {
   outline: 0px;
   box-shadow: 0px;
+}
+
+.wrapper {
+  padding: 0;
 }
 
 .button {
@@ -16071,6 +16074,108 @@ HOME HERO BANNER STYLES
   text-align: center;
   color: black;
   margin-top: 30px;
+}
+
+#wrapper-footer {
+  padding-top: 100px;
+}
+#wrapper-footer .footer-testimonial {
+  text-align: center;
+  margin-bottom: 100px;
+}
+#wrapper-footer .footer-testimonial .testimonial .stars {
+  color: #EBAD00;
+  font-size: 36px;
+}
+#wrapper-footer .footer-testimonial .testimonial .quote {
+  margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+  #wrapper-footer .footer-testimonial .testimonial .quote {
+    font-size: 22px;
+  }
+}
+#wrapper-footer .footer-testimonial .testimonial .author {
+  color: #EBAD00;
+}
+#wrapper-footer .footer-contact-info {
+  background-color: #EBAD00;
+  padding: 60px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  color: black;
+}
+@media (max-width: 768px) {
+  #wrapper-footer .footer-contact-info {
+    padding: 20px;
+  }
+}
+#wrapper-footer .footer-contact-info .title {
+  font-size: 36px;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  #wrapper-footer .footer-contact-info .title {
+    font-size: 32px;
+  }
+}
+#wrapper-footer .footer-contact-info .desc {
+  font-size: 18px;
+  font-weight: 500;
+  margin-block: 30px;
+}
+@media (max-width: 768px) {
+  #wrapper-footer .footer-contact-info .desc {
+    margin-block: 20px;
+  }
+}
+#wrapper-footer .footer-contact-info .contact-info {
+  font-size: 18px;
+}
+#wrapper-footer .footer-contact-info .contact-info div {
+  margin-bottom: 0.5em;
+}
+#wrapper-footer .footer-contact-info .contact-info .fa {
+  color: white;
+  min-width: 1.5em;
+}
+#wrapper-footer .footer-contact-info .contact-form-holder {
+  background-color: black;
+  padding: 30px;
+  border-radius: 30px;
+}
+@media (max-width: 768px) {
+  #wrapper-footer .footer-contact-info .contact-form-holder {
+    margin-top: 30px;
+  }
+}
+#wrapper-footer .footer-contact-info .contact-form-holder input, #wrapper-footer .footer-contact-info .contact-form-holder textarea {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  height: auto;
+  background-color: white;
+  border: none;
+  outline: none;
+}
+#wrapper-footer .footer-contact-info .contact-form-holder input[type=submit], #wrapper-footer .footer-contact-info .contact-form-holder textarea[type=submit] {
+  display: inline-block;
+  background-color: #DFA503;
+  color: white;
+  width: auto;
+}
+#wrapper-footer .copyright {
+  background-color: white;
+  padding: 20px;
+  color: black;
+}
+#wrapper-footer .copyright a {
+  color: black;
+}
+#wrapper-footer .copyright span {
+  color: #EBAD00;
+  margin-right: 1em;
+  margin-right: 1em;
 }
 
 /*# sourceMappingURL=theme.css.map */
