@@ -41,6 +41,9 @@ button{
         background-color: $black;
         border-radius: 1.5em;
         text-decoration: none;
+
+       
+
         &.top-header-contact-email{
             @media (max-width:$lg) {
                 display: none;
@@ -57,6 +60,19 @@ button{
             background-color: $primary;
             color: $white;
          }
+
+         &.outline {
+            background: transparent;
+            border: 1px solid black;
+            color: black;
+
+            &:hover {
+                background-color: $black;
+                color: $primary;
+                text-decoration: none;
+             }
+
+        }
     
 }
 
@@ -470,7 +486,7 @@ HOME HERO BANNER STYLES
 .home-product-info{
     background-color: $primary;
     padding-top: 200px;
-    height: 1000px;
+    padding-bottom: 100px; 
     margin-top: -50px;
     margin-bottom: -50px;
 
@@ -483,6 +499,11 @@ HOME HERO BANNER STYLES
         position: relative;
         z-index: 500;
 
+        @media (max-width:$md) {
+            flex-direction: column;
+            padding: 20px;
+        }
+
         .discount-circle {
             height: 268px;
             min-width: 268px;
@@ -490,10 +511,36 @@ HOME HERO BANNER STYLES
             background-color: $white;
             color: $black;
             line-height: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            position: relative;
+            .abs-holder {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: inherit;
+                
+                @media (max-width:$md) {
+                    display: inline-flex;
+                    min-width: auto;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                @media (max-width:$md) {
+                    flex-direction: column;
+                    padding: 20px;
+                }
+            }
+
+            @media (max-width:$md) {
+                margin-bottom: 15px;
+                height: auto;
+                min-width: auto;
+                padding-bottom: 100%;
+            }
+
 
             .save {
                 font-size: 36px;
@@ -523,6 +570,191 @@ HOME HERO BANNER STYLES
             p{
                 margin: 0;
             } 
+        }
+    }
+
+    .home-product-holder {
+        margin-top: 100px;  
+        h2{
+            font-size: 36px;
+            color: $black;
+            font-weight: bold;
+            margin-bottom: 15px;
+            i {
+                margin-right: 0.25em;
+            }
+
+            @media (max-width:$lg )  {
+                text-align: center;
+            }
+
+        }
+        
+        .home-products {
+            .home-product { 
+                border-radius: 15px;
+                background: $white;
+                color: $black;
+                padding: 30px;
+                margin-bottom: 15px;
+                position: relative;
+                @media (max-width:$lg )  {
+                    padding-bottom: 60px;
+                }
+
+                img {
+
+                }
+
+                .title{
+                    font-size: 30px;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 1.15;
+
+                    li {
+                        margin: 0;
+                        padding: 0;
+                        font-size: 16px;
+                        font-weight: 300;
+
+                        &:before {
+                            content: "\f0da";
+                            display: inline-block;
+                            font-family: FontAwesome;
+                            margin-right: 0.5em;
+                            color: $primary;
+                        }
+                    }
+                }
+
+                .home-product-circles {
+                    .circle {
+                        width: 100%;
+                        padding-top: 100%;
+                        background: $primary;
+                        border-radius: 50%;
+                        position: relative;
+
+                        @media (max-width:$sm )  {
+                            width: 75%;
+                            padding-top: 75%;
+                        }
+
+                        .abs-circle-holder{
+                            position: absolute;
+                            top: 15px;
+                            bottom: 15px;
+                            left: 15px;
+                            right: 15px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            text-align: center;
+                            line-height: 1;
+
+                            .content-holder {
+                                font-weight: 500;
+                                font-size: 16px;
+                            }
+
+                            @media (max-width:$sm )  {
+                                font-size: 24px;
+                            }
+
+                            .icon {
+                                margin-top: 15px;
+                            }
+
+                        }
+                
+                    }
+                }
+
+                .abs-holder-button {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    padding: 5px 30px;
+                    font-weight: bold;
+                    color: $white;
+                    background: $black;
+                    border-top-right-radius: 15px;
+                    border-top-left-radius: 15px;
+                    cursor: pointer;
+
+                    @media (max-width:$md )  {
+                        text-align: center;
+                        width: calc(100% - 20px);
+                    }
+                
+                }
+            }
+        }
+    }
+
+    .home-we-accept {
+        margin-top: 75px;
+
+        .button-holder {
+            margin-bottom: 30px;
+
+            &.top {
+
+                @media (max-width:$lg )  {
+                    display: none;
+                }
+            }
+
+            &.bottom {
+                display: none;
+
+                @media (max-width:$lg )  {
+                    display: block;
+                    text-align: center;
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        .title-holder {
+            display: flex;
+
+            
+            h2 {
+                flex: 1;
+                font-size: 36px;
+                font-weight: bold;
+                color: $black;
+                margin-bottom: 30px;
+                @media  (max-width:$lg)   {
+                    
+                    text-align: center;
+                }
+            }
+
+
+        }
+
+        .circle {
+            margin-top: 30px;
+            @media (max-width:$md )  {
+                padding-inline: 25px;
+            }
+            .title {
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                color: $black;
+                margin-top: 30px;
+            }
         }
     }
 }
