@@ -28,7 +28,7 @@ $container = get_theme_mod('understrap_container_type');
 	<div class="container">
 		<div class="row">
 
-			<div class="col-lg-2">
+			<div class="col-lg-3">
 				<i class="fa fa-calendar"></i> Post Date: <?php echo get_the_date('d.m.Y'); ?>
 			</div>
 			<div class="col-lg-3">
