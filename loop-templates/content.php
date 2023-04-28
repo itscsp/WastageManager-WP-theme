@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Post rendering content according to caller of get_template_part
  *
@@ -6,45 +7,43 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article class="post-archive-page" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header">
+	<div class="archive-post-image" <?php
+									if (has_post_thumbnail()) { ?> style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);" <?php } ?>>
 
-		<?php
-		the_title(
-			sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-			'</a></h2>'
-		);
-		?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
+	</div>
+	<div class="article-holder">
+		<header class="entry-header">
 
-			<div class="entry-meta">
-				<?php understrap_posted_on(); ?>
-			</div><!-- .entry-meta -->
+			<?php
+			the_title(
+				sprintf('<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())),
+				'</a></h2>'
+			);
+			?>
 
-		<?php endif; ?>
 
-	</header><!-- .entry-header -->
+		</header><!-- .entry-header -->
 
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+		<div class="entry-content">
 
-	<div class="entry-content">
+			<?php
+			the_post_summary();
+			?>
 
-		<?php
-		the_excerpt();
-		understrap_link_pages();
-		?>
+		</div><!-- .entry-content -->
 
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-
-		<?php understrap_entry_footer(); ?>
-
-	</footer><!-- .entry-footer -->
+		<div class="entry-meta-data">
+			<a href="<?php the_permalink(); ?>" class="button outline">Read More</a>
+			<div class="date">
+				<i class="fa fa-calendar"></i><?php echo get_the_date('d.m.Y'); ?>
+			</div>
+		</div>
+	</div>
 
 </article><!-- #post-<?php the_ID(); ?> -->

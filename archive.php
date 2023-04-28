@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying archive pages
  *
@@ -8,63 +9,75 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 
-$container = get_theme_mod( 'understrap_container_type' );
+$container = get_theme_mod('understrap_container_type');
 ?>
+
+<div class="page-header-holder">
+	<div class="container">
+		<header class="entry-header">
+			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+		</header>
+	</div>
+
+</div>
+
 
 <div class="wrapper" id="archive-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<div class="<?php echo esc_attr($container); ?>" id="content" tabindex="-1">
 
 		<div class="row">
 
-			<?php
-			// Do the left sidebar check and open div#primary.
-			get_template_part( 'global-templates/left-sidebar-check' );
-			?>
+			<div class="col-lg-7">
 
-			<main class="site-main" id="main">
+				<main class="site-main" id="main">
+					<div class="row">
 
-				<?php
-				if ( have_posts() ) {
-					?>
-					<header class="page-header">
 						<?php
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="taxonomy-description">', '</div>' );
+						if (have_posts()) {
 						?>
-					</header><!-- .page-header -->
-					<?php
-					// Start the loop.
-					while ( have_posts() ) {
-						the_post();
+							<?php
+							// Start the loop.
+							while (have_posts()) { ?>
+								<div class="col-lg-6">
+								<?php
+								the_post();
+								get_template_part('loop-templates/content', get_post_format());
+								?>
+								</div>
+								
+								<?php 
+								}
+							 } else {
+							get_template_part('loop-templates/content', 'none');
+						}
+							?>
+					</div>
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'loop-templates/content', get_post_format() );
-					}
-				} else {
-					get_template_part( 'loop-templates/content', 'none' );
-				}
-				?>
-
-			</main>
-
-			<?php
-			// Display the pagination component.
-			understrap_pagination();
-
-			// Do the right sidebar check and close div#primary.
-			get_template_part( 'global-templates/right-sidebar-check' );
-			?>
+				</main>
+			</div>
+			<div class=" col-lg-4">
+				<div class="right-sidebar-blog-category">
+					<h3>Blog Category</h3>
+					<ul>
+						<li>Category 1</li>
+						<li>Category 2</li>
+						<li>Category 3</li>
+						<li>Category 4</li>
+					</ul>
+				</div>
+			</div>
 
 		</div><!-- .row -->
+
+		<div class="post-navigation-option">
+			<?php understrap_post_nav(); ?>
+		</div>
+
 
 	</div><!-- #content -->
 

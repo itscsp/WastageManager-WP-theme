@@ -16323,6 +16323,48 @@ HOME HERO BANNER STYLES
   width: auto;
 }
 
+.post-archive-page {
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  min-height: 440px;
+}
+.post-archive-page .archive-post-image {
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  background-image: url(../img/page-placeholder.png);
+}
+.post-archive-page .article-holder {
+  padding: 25px;
+}
+.post-archive-page .article-holder h2 a, .post-archive-page .article-holder .h2 a {
+  font-size: 24px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+.post-archive-page .article-holder .entry-content {
+  font-weight: 300;
+  line-height: 1.15;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.post-archive-page .article-holder .entry-meta-data {
+  display: flex;
+  align-items: center;
+}
+.post-archive-page .article-holder .entry-meta-data .date {
+  font-weight: 300;
+  margin-left: 15px;
+}
+.post-archive-page .article-holder .entry-meta-data .date i {
+  color: #EBAD00;
+  margin-right: 10px;
+}
+
 .home-we-accept {
   padding-top: 75px;
   padding-bottom: 75px;
