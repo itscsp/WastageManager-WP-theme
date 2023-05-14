@@ -44,32 +44,36 @@ $container = get_theme_mod('understrap_container_type');
 							// Start the loop.
 							while (have_posts()) { ?>
 								<div class="col-lg-6">
-								<?php
-								the_post();
-								get_template_part('loop-templates/content', get_post_format());
-								?>
+									<?php
+									the_post();
+									get_template_part('loop-templates/content', get_post_format());
+									?>
 								</div>
-								
-								<?php 
-								}
-							 } else {
+
+						<?php
+							}
+						} else {
 							get_template_part('loop-templates/content', 'none');
 						}
-							?>
+						?>
 					</div>
 
 				</main>
 			</div>
 			<div class=" col-lg-4">
+
 				<div class="right-sidebar-blog-category">
 					<h3>Blog Category</h3>
 					<ul>
-						<li>Category 1</li>
-						<li>Category 2</li>
-						<li>Category 3</li>
-						<li>Category 4</li>
+						<?php
+						$categories = get_categories();
+						foreach ($categories as $category) {
+							echo '<li><a href=""' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+						}
+						?>
 					</ul>
 				</div>
+
 			</div>
 
 		</div><!-- .row -->

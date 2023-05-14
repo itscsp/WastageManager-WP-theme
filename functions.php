@@ -27,7 +27,8 @@ $understrap_includes = array(
 	'/editor.php',                          // Load Editor functions.
 	'/block-editor.php',                    // Load Block Editor functions.
 	'/moshi.php',
-	'/deprecated.php',                      // Load deprecated functions.
+	'/deprecated.php',   					// Load deprecated functions.
+	'/woo-customization.php'                   	// Woo commerce customization
 );
 
 // Load WooCommerce functions if WooCommerce is activated.
@@ -44,3 +45,12 @@ if ( class_exists( 'Jetpack' ) ) {
 foreach ( $understrap_includes as $file ) {
 	require_once get_theme_file_path( $understrap_inc_dir . $file );
 }
+
+// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+function woocommerce_custom_add_to_cart_text() {
+	return __('Order this skip bin', 'woocommerce');
+}
+
+add_filter('woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_add_to_cart_text');
