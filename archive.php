@@ -13,8 +13,10 @@ defined('ABSPATH') || exit;
 
 get_header();
 
+
 $container = get_theme_mod('understrap_container_type');
 ?>
+
 
 <div class="page-header-holder">
 	<div class="container">
@@ -32,7 +34,7 @@ $container = get_theme_mod('understrap_container_type');
 
 		<div class="row">
 
-			<div class="col-lg-7">
+			<div class="col-lg-10">
 
 				<main class="site-main" id="main">
 					<div class="row">
@@ -60,7 +62,7 @@ $container = get_theme_mod('understrap_container_type');
 
 				</main>
 			</div>
-			<div class=" col-lg-4">
+			<div class=" col-lg-2">
 
 				<div class="right-sidebar-blog-category">
 					<h3>Blog Category</h3>
@@ -68,7 +70,7 @@ $container = get_theme_mod('understrap_container_type');
 						<?php
 						$categories = get_categories();
 						foreach ($categories as $category) {
-							echo '<li><a href=""' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+							echo '<li><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
 						}
 						?>
 					</ul>

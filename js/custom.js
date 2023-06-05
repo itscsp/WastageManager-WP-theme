@@ -2872,22 +2872,95 @@ var locations = [
 	},
 ];
 
+
+
 jQuery(document).ready(function ($) {
 
-    new WOW ({
-        mobile:false,
-    }).init();
+	new WOW({
+		mobile: false,
+	}).init();
 
-    let singleProductAutoCompletelist = "";
-    locations.forEach(function (location){
-        singleProductAutoCompletelist += "<li>"
-        singleProductAutoCompletelist += location['Suburb']
-        singleProductAutoCompletelist += "</li>"
-    })
+	// const singleProductAutocompleteInput = $('#single-product-autocomplete-input');
+
+	// let singleProductAutoCompletelist = "";
 
 
-    jQuery("#header-product-autocomplete-list").html(
-        singleproductautocompletelist
-    );
-    
+	// locations.forEach(function (location) {
+	// 	singleProductAutoCompletelist += "<li>"
+	// 	singleProductAutoCompletelist += location['Suburb'] + " " + location['Postcode']
+	// 	singleProductAutoCompletelist += "</li>"
+	// })
+
+
+	// jQuery("#header-product-autocomplete-list").html(
+	// 	singleProductAutoCompletelist
+	// );
+
 });
+
+function singleProductKeyup(obj) {
+	var val = jQuery(obj).val();
+
+	var searchResults = locations.filter(function (location) {
+		if (location['Suburb'].toLowerCase().indexOf(val.toLowerCase()) !== -1) {
+			return true
+		}
+
+		if (location['Postcode'].toString().indexOf(val) !== -1) {
+			return true
+		}
+
+		return false;
+	})
+
+	searchResults.slice(0, 4);
+
+	let singleProductAutoCompletelist = "";
+
+	let currentUrl = window.location.pathname
+
+
+	if(val) {
+		
+			searchResults.forEach(function (location) {
+
+				let distance = '';
+
+				if(location['Distance'] > 0 && location['Distance'] < 25) {
+					distance = '0-25km';
+				}
+
+				if(location['Distance'] >= 25 && location['Distance'] < 50) {
+					distance = '25-50km';
+				}
+				if(location['Distance'] >= 50 && location['Distance'] < 75) {
+					distance = '50-75km';
+				}
+				if(location['Distance'] >= 75 && location['Distance'] < 100) {
+					distance = '75-100km';
+				}
+				if(location['Distance'] >= 100) {
+					distance = '100km+';
+				}
+				
+				singleProductAutoCompletelist += "<li>"
+				singleProductAutoCompletelist += "<a href='"+currentUrl+"?attribute_depo="+location['Depo']+"&attribute_distance="+distance+"'>";
+				singleProductAutoCompletelist += location['Suburb'] + " - " + location['Postcode']
+				singleProductAutoCompletelist += "</a>"
+				singleProductAutoCompletelist += "</li>"
+			})
+		
+			jQuery("#header-product-autocomplete-list").html(
+				singleProductAutoCompletelist
+			);
+	}else{
+		jQuery("#header-product-autocomplete-list").html(
+			singleProductAutoCompletelist
+		);
+	}
+
+	
+
+
+
+}

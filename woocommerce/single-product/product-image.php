@@ -53,28 +53,33 @@ $wrapper_classes   = apply_filters(
 		do_action('woocommerce_product_thumbnails');
 		?>
 	</figure>
-
+ 
 	<div class="product-image-instant-quote-holder">
 
 
 		<div class="title">Instant Quote</div>
 		<div class="desc">Please fill in your suburb and days you'd like to hire the skip-bin and you will be provided with an instant quote on this product.</div>
 
-
-
 		<!-- <div class="product-price-holder">
-			<?php //echo $product->get_price_html(); ?> <small class="inc-gst">inc. GST</small>
+			<?php //echo $product->get_price_html(); 
+			?> <small class="inc-gst">inc. GST</small>
 		</div> -->
 
 		<div id="single-product-autocomplete">
 
-			<div class="input-group">
-				<i class="fa fa-location-arrow"></i> <input type="text" placeholder="Suburb or Postcode" value="" id="single-product-autocomplete-input" onkeyup="singleProductKeyup(this)">
+			<div class="">
+				<div class="input-group">
+
+					<i class="fa fa-location-arrow"></i>
+					<input type="text" placeholder="Suburb or Postcode" value="" id="single-product-autocomplete-input" onKeyUp="singleProductKeyup(this)">
+				</div>
+
+				<div>
+					<ul id="header-product-autocomplete-list">
+
+					</ul>
+				</div>
 			</div>
-
-			<ul id="single-product-autocomplete-list">
-
-			</ul>
 		</div>
 
 		<div id="single-product-placeholder" class="product-price-holder">
@@ -98,7 +103,8 @@ $wrapper_classes   = apply_filters(
 
 		do_action('woocommerce_before_add_to_cart_form'); ?>
 
-		<form class="variations_form cart" action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint($product->get_id()); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
+		<form class="variations_form cart" action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint($product->get_id()); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. 
+																																																																								?>">
 			<?php do_action('woocommerce_before_variations_form'); ?>
 
 			<?php if (empty($available_variations) && false !== $available_variations) : ?>
@@ -108,7 +114,8 @@ $wrapper_classes   = apply_filters(
 					<tbody>
 						<?php foreach ($attributes as $attribute_name => $options) : ?>
 							<tr>
-								<th class="label"><label for="<?php echo esc_attr(sanitize_title($attribute_name)); ?>"><?php echo wc_attribute_label($attribute_name); // WPCS: XSS ok. ?></label></th>
+								<th class="label"><label for="<?php echo esc_attr(sanitize_title($attribute_name)); ?>"><?php echo wc_attribute_label($attribute_name); // WPCS: XSS ok. 
+																														?></label></th>
 								<td class="value">
 									<?php
 									wc_dropdown_variation_attribute_options(

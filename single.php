@@ -63,7 +63,7 @@ $container = get_theme_mod('understrap_container_type');
 						<?php 
 							$categories = get_categories();
 							foreach($categories as $category) {
-								echo '<li><a href=""'.get_category_link($category->term_id).'">'. $category->name.'</a></li>';
+								echo '<li><a href="'.get_category_link($category->term_id).'">'. $category->name.'</a></li>';
 							}
 						?>
 					</ul>
