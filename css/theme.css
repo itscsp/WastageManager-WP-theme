@@ -16664,4 +16664,52 @@ WooCommerce Styles
   border-radius: 15px;
 }
 
+#single-product-autocomplete .input-group-container {
+  border-radius: 15px;
+  background: #fff;
+}
+#single-product-autocomplete .input-group {
+  display: flex;
+  position: relative;
+}
+#single-product-autocomplete .input-group i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  color: black;
+  transform: translateY(-50%);
+}
+#single-product-autocomplete .input-group input {
+  width: 100%;
+  color: black;
+  padding: 0.5em;
+  padding-left: calc(1em + 18px);
+  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: 0px;
+  outline: none;
+}
+#single-product-autocomplete #header-product-autocomplete-list {
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#single-product-autocomplete #header-product-autocomplete-list li {
+  display: block;
+}
+#single-product-autocomplete #header-product-autocomplete-list li a {
+  display: block;
+  padding: 0.25em 0.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+#single-product-autocomplete #header-product-autocomplete-list li a:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
 /*# sourceMappingURL=theme.css.map */

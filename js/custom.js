@@ -2880,6 +2880,14 @@ jQuery(document).ready(function ($) {
 		mobile: false,
 	}).init();
 
+	$(".variations_form").on("woocommerce_variation_select_change", function() {
+		$('#single-product-placeholder').show(0)
+	});
+
+	$(".single_variation_wrap").on("show_variation", function(event, variation){
+		$('#single-product-placeholder').hide(0)
+	})
+
 	// const singleProductAutocompleteInput = $('#single-product-autocomplete-input');
 
 	// let singleProductAutoCompletelist = "";
@@ -2953,14 +2961,14 @@ function singleProductKeyup(obj) {
 			jQuery("#header-product-autocomplete-list").html(
 				singleProductAutoCompletelist
 			);
+
+			jQuery("#single-product-placeholder").addClass('active')
+			
 	}else{
 		jQuery("#header-product-autocomplete-list").html(
 			singleProductAutoCompletelist
 		);
+		jQuery("#single-product-placeholder").removeClass('active')
 	}
-
-	
-
-
 
 }

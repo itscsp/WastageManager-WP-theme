@@ -18,10 +18,12 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+global $product;
 
 the_title( '<h1 class="product_title entry-title">', '</h1>' );
-
+if ($product->is_type('variable')) {
 ?>
+
 <div class="product-single-dimensions">
 	Dimensions: <strong><?php the_field('dimension'); ?></strong>
 </div>
@@ -54,4 +56,5 @@ the_title( '<h1 class="product_title entry-title">', '</h1>' );
 		</div>
 	</div>
 </div>
+<?php 	}?> 
 <?php
